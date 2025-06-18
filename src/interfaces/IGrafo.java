@@ -1,7 +1,7 @@
 package interfaces;
 
-public interface IGrafo {
-    void agregarNodo(int valor); // pre: el valor no debe estar ya en el grafo
+public interface IGrafo<T> {
+    void agregarNodo(int id, T valor); // pre: el valor no debe estar ya en el grafo
     void agregarArista(int origen, int destino); // pre: nodos deben existir
 
     void mostrarMatrizAdyacencia(); // Muestra la matriz de adyacencia

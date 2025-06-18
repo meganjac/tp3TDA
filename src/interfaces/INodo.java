@@ -14,13 +14,8 @@ public interface INodo<T> {
 	/*getters & setters*/
 	T getValor(); //valor de tipo genérico
 	void setValor(T valor);
-	
 
-	/*
-	 *insertar elementos en la lista Vecinos
-	 * PRE: lista creada, independientemente de la cantidad de elementos
-	 * POST: el vecino debe quedar insertado a la lista de adyacencia, como último elemento
-	 * */
-	public void agregarVecino(INodo vecino);
+
+	void agregarVecino(INodo<T> vecino);
 }
 

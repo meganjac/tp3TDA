@@ -1,10 +1,12 @@
+package interfaces;
+
 import java.util.List;
 
 public interface INodo<T> {
 
 	/*
 	 PRE: -
-	 POST: Lista creada y asociada a cada instancia de INodo
+	 POST: Lista creada y asociada a cada instancia de interfaces.INodo
 	 AX: - 
 	 */
 	List<INodo> getVecinos(); //constante

@@ -2,7 +2,7 @@ package interfaces;
 
 public interface IPersona {
 
-    public String getDni();
+    public int getDni();
 
 
     public String getNombre();

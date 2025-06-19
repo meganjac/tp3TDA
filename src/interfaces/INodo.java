@@ -10,7 +10,7 @@ public interface INodo<T> {
 	 AX: - 
 	 */
 	List<INodo<T>> getVecinos(); //constante
-	
+	public int getId();
 	/*getters & setters*/
 	T getValor(); //valor de tipo genérico
 	void setValor(T valor);

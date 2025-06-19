@@ -1,7 +1,6 @@
 package modelo;
 import java.util.*;
 import interfaces.IGrafo;
-import interfaces.IGrafo;
 import interfaces.INodo;
 
 //grafo NO dirigido
@@ -13,7 +12,7 @@ public class Grafo<T> implements IGrafo<T>{
     public void agregarNodo(int id, T valor) {// id sería la clave del "diccionario"; valor sería el valor asociado a esa clave,
         //en este caso, "valor" sería un objeto llamado persona. Entonces el Nodo sería una persona.
         if (!nodos.containsKey(id)){//si la clave "id" se encuentra NO dentro del mapa
-            nodos.put(id, new Nodo<T>(valor));//agregamos al mapa la clave "id" y su nuevo valor (un INodo de tipo <T>)
+            nodos.put(id, new Nodo<T>(id, valor));//agregamos al mapa la clave "id" y su nuevo valor (un INodo de tipo <T>)
         }
     }
 
@@ -56,9 +55,6 @@ public class Grafo<T> implements IGrafo<T>{
                 //dentro de la lista de vecinos del nodo cuya clave es el número de i (columna), se printea un 1, sino un 0
             }
             System.out.println();
-
-            //la lógica de los for es: el valor i del primer for no se incrementa hasta que el for anidado se complete en su totalidad.
-            //es por eso que podemos imprimir todos los nodos vecinos (representados en la fila) de un nodo particular (representado como la columna)
         }
     }
 
@@ -84,15 +80,42 @@ public class Grafo<T> implements IGrafo<T>{
         }
     }
 
-    @Override
-    public void bfs(int inicio) {
 
+    @Override
+    public void bfs(int idInicio) {
+        //explorar todos los nodos del grafo de manera sistemática, comenzando desde un nodo raíz y visitando primero todos los nodos vecinos a la raíz,
+        // luego los vecinos de esos vecinos, y así sucesivamente, nivel por nivel
+        if (!nodos.containsKey(idInicio)) return;
+
+        //creamos un conjunto con los vecinos y una cola con los nodos a recorrer
+        Set<Integer> visitados = new HashSet<>();
+        Queue<INodo<T>> cola = new LinkedList<>();
+
+        INodo<T> nodoInicio = nodos.get(idInicio);
+        cola.add(nodoInicio);
+        visitados.add(nodoInicio.getId());
+
+        System.out.println("Recorrido BFS:");
+        while (!cola.isEmpty()) {
+            INodo<T> actual = cola.poll();
+            System.out.print(actual.getValor() + " ");
+
+            for (INodo<T> vecino : actual.getVecinos()) {
+                if (!visitados.contains(vecino.getId())) {
+                    visitados.add(vecino.getId());
+                    cola.add((INodo<T>) vecino);
+                }
+            }
+
+        }
     }
+    //reutilizar el callback anterior para comparar el nodo
+    //hacer otro callback para retornar un valor entero asociado a un nodo particular
+    //
+
 
     @Override
     public void dfs(int inicio) {
 
     }
-
-    //
 }

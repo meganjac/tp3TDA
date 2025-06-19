@@ -2,11 +2,11 @@ package modelo;
 
 import interfaces.IPersona;
 public class Persona implements IPersona{
-	private String dni;
+	private int dni; //cambiamos el DNI a tipo entero
     private String nombre;
     private int edad;
  
-    public Persona(String dni, String nombre, int edad) {
+    public Persona(int dni, String nombre, int edad) {
         this.dni = dni;
         this.nombre = nombre;
         this.edad = edad;
@@ -14,7 +14,7 @@ public class Persona implements IPersona{
 
 
 	@Override
-	public String getDni() {
+	public int getDni() {
 		return this.dni;
 	}
 

@@ -9,7 +9,7 @@ public interface INodo<T> {
 	 POST: Lista creada y asociada a cada instancia de interfaces.INodo
 	 AX: - 
 	 */
-	List<INodo> getVecinos(); //constante
+	List<INodo<T>> getVecinos(); //constante
 	
 	/*getters & setters*/
 	T getValor(); //valor de tipo genérico

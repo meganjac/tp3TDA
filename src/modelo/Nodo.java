@@ -14,7 +14,7 @@ public class Nodo<T> implements INodo<T>{
         this.vecinos = new ArrayList<>(); //inicializamos el array
     }
     @Override
-    public List<INodo> getVecinos() {
+    public List<INodo<T>> getVecinos() {
         return List.of();
     }
 

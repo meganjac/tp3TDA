@@ -4,7 +4,7 @@ import interfaces.INodo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+ //Cambios realizados en clase Nodo
 public class Nodo<T> implements INodo<T> {
 
     private T valor;
